@@ -15,14 +15,17 @@ from wtforms import DecimalField, RadioField, SelectField, SubmitField
 from wtforms.validators import NumberRange
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = secrets.token_urlsafe(16)
+# используем csrf токен, можете генерировать его сами
+SECRET_KEY = 'secret'
+app.config['SECRET_KEY'] = SECRET_KEY
+#app.config["SECRET_KEY"] = secrets.token_urlsafe(16)
 app.config["RECAPTCHA_USE_SSL"] = False
 app.config[
     "RECAPTCHA_PUBLIC_KEY"
-] = "6LfGIRskAAAAACov47C0hN0LAEUhUh3aO7zSWOCu"  # os.environ.get("RECAPTCHA_PUBLIC_KEY")
+] = "6Lfzs9AoAAAAALTxtqM9Tjpj_8tDiIF5tVGSlOhb"  # os.environ.get("RECAPTCHA_PUBLIC_KEY")
 app.config[
     "RECAPTCHA_PRIVATE_KEY"
-] = "6LfGIRskAAAAAJfBJVYyVoe31TFUXZ7jidvON3jb"  # os.environ.get("RECAPTCHA_PRIVATE_KEY")
+] = "6Lfzs9AoAAAAAH6bpRBS6yjwMAqhPtRWdsbMLOuK"  # os.environ.get("RECAPTCHA_PRIVATE_KEY")
 # app.config["SESSION_COOKIE_DOMAIN"] = False
 app.config["RECAPTCHA_OPTIONS"] = {"theme": "dark light"}
 bootstrap = Bootstrap(app)
