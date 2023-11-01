@@ -89,7 +89,7 @@ class ImageForm(FlaskForm):
 
 
 @app.route("/", methods=["GET", "POST"])
-def default_router():
+def default_router(color_distance=None):
     form = ImageForm()
     filename = None
     save_file = None
